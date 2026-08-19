@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "coupon-diary-web",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["scripts/serve-web.py"],
+      "port": 5321,
+      "autoPort": true
+    }
+  ]
+}
