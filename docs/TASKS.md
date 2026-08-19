@@ -119,6 +119,11 @@
 - [x] (claude) T-163 Android manifest 확인 — 부팅 리시버 존재, inexact 스케줄링이라 정확 알람 권한 불필요. 미사용 USE_BIOMETRIC 제거
 - [x] (claude) T-164 share_plus 결과 3분기 처리 — unavailable은 '결과 모름'이므로 사용자에게 확인
 
+### 실기기 빌드에서 드러난 것 (2026-08-19, GitHub Actions)
+- [x] (claude) T-170 Android 한국어 인식 모델 누락 — R8이 `KoreanTextRecognizerOptions` 부재로 빌드 중단. 정적 분석·웹 빌드로는 안 나오는 문제였다
+- [ ] (claude) T-171 iOS Podfile에 `GoogleMLKit/TextRecognitionKorean` 추가 — Podfile은 첫 iOS 빌드 때 생성되므로 그때. `docs/03-release.md` 참조
+- [x] (claude) T-172 CI 파이프라인 구축 — Android Studio 없이 GitHub Actions가 APK를 빌드
+
 ### 품질·출시
 - [x] (claude) T-060 단위·위젯 테스트
 - [x] (claude) T-061 브라우저 반응형/접근성 검증

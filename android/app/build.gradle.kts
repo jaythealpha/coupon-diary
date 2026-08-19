@@ -74,6 +74,15 @@ kotlin {
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
+
+    // 한국어 텍스트 인식 모델.
+    //
+    // google_mlkit_text_recognition 플러그인은 스크립트별 모델을 전부
+    // `compileOnly`로만 선언한다 — 앱이 쓰는 것만 직접 넣으라는 뜻이다.
+    // 이걸 빠뜨리면 R8이 `KoreanTextRecognizerOptions` 부재로 빌드를 세우고,
+    // R8을 꺼도 `TextRecognizer(script: korean)` 호출에서 런타임에 죽는다.
+    // 한국어 기프티콘 인식이 이 앱의 전제라 없어서는 안 된다.
+    implementation("com.google.mlkit:text-recognition-korean:16.0.1")
 }
 
 flutter {

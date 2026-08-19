@@ -3,8 +3,11 @@
 -keep class com.google.mlkit.** { *; }
 -keep class com.google.android.gms.internal.mlkit_** { *; }
 
-# 사용하지 않는 다른 스크립트(중국어·일본어·데바나가리) 인식기는 넣지 않는다.
-# 없는 클래스를 참조한다는 경고만 나오므로 무시한다.
+# 한국어 모델은 build.gradle.kts에서 implementation으로 실제로 넣는다.
+# (예전에는 이 파일이 "넣지 않는다"고만 적어두고 한국어까지 빠져 있었다.
+#  그래서 첫 Android 릴리스 빌드가 R8 단계에서 멈췄다.)
+#
+# 쓰지 않는 나머지 스크립트는 넣지 않으므로 참조 경고만 끈다.
 -dontwarn com.google.mlkit.vision.text.chinese.**
 -dontwarn com.google.mlkit.vision.text.devanagari.**
 -dontwarn com.google.mlkit.vision.text.japanese.**

@@ -7,6 +7,21 @@
 
 ---
 
+
+## iOS 첫 빌드에서 반드시 할 것 — 한국어 인식 모델
+
+`ios/Podfile`은 첫 iOS 빌드 때 Flutter가 생성한다. **생성된 직후 아래 한 줄을
+`target 'Runner' do` 블록 안에 넣어라.**
+
+```ruby
+pod 'GoogleMLKit/TextRecognitionKorean', '~> 9.0.0'
+```
+
+빠뜨리면 한국어 기프티콘 인식이 동작하지 않는다. `google_mlkit_text_recognition`
+플러그인은 스크립트별 모델을 앱이 직접 넣도록 되어 있고, 기본값에 한국어는
+포함되지 않는다. Android에서 같은 이유로 첫 릴리스 빌드가 R8 단계에서 멈췄다
+(`android/app/build.gradle.kts`의 `text-recognition-korean` 참조).
+
 ## 0. 현재 상태
 
 | 항목 | 상태 |
